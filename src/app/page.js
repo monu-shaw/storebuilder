@@ -1,7 +1,10 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import { headers } from "next/headers";
 
-export default function Home() {
+export default async function Home() {
+  let a = headers();
+  let site =await a.get('host');
   return (
     <main className={styles.main}>
       <div className={styles.description}>
@@ -29,14 +32,7 @@ export default function Home() {
       </div>
 
       <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+        <h1>{site}</h1>
       </div>
 
       <div className={styles.grid}>
